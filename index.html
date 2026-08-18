@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Canvass Tracker</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <header id="topbar">
+    <h1>Canvass Tracker</h1>
+    <div id="stats"></div>
+    <button id="uploadCsvBtn" class="btn-secondary" type="button">Upload CSV</button>
+    <input type="file" id="csvFileInput" accept=".csv" hidden>
+    <button id="toggleListBtn" class="btn-secondary" type="button">List view</button>
+  </header>
+
+  <div id="filterbar">
+    <div class="filter-group" id="filter-status"></div>
+    <div class="filter-group" id="filter-rating"></div>
+    <div class="filter-group" id="filter-home"></div>
+    <div class="filter-group" id="filter-lit"></div>
+    <input type="search" id="searchBox" placeholder="Search name or address&hellip;">
+    <button id="clearFiltersBtn" class="btn-link" type="button">Clear filters</button>
+  </div>
+
+  <main>
+    <div id="map"></div>
+    <div id="emptyState" hidden>
+      <p>No roster loaded yet.</p>
+      <button id="emptyStateUploadBtn" class="btn-primary" type="button">Upload CSV</button>
+    </div>
+    <section id="listView" hidden>
+      <table id="voterTable">
+        <thead>
+          <tr>
+            <th>Name</th><th>Address</th><th>Last contact</th><th>Result</th><th>Home?</th><th>Lit?</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="voterTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <aside id="panel" class="slideover" hidden>
+    <button id="panelClose" class="btn-link" type="button" aria-label="Close">&times;</button>
+    <div id="panelContent"></div>
+  </aside>
+  <div id="panelOverlay" class="slideover-overlay" hidden></div>
+
+  <aside id="importPanel" class="slideover" hidden>
+    <button id="importPanelClose" class="btn-link" type="button" aria-label="Close">&times;</button>
+    <div id="importPanelContent"></div>
+  </aside>
+  <div id="importPanelOverlay" class="slideover-overlay" hidden></div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js" integrity="sha256-uOhwxdKyl3LxDJ+pppPIuJaqyFQO1nAePMYwTGg/69s=" crossorigin=""></script>
+<script src="app.js"></script>
+</body>
+</html>

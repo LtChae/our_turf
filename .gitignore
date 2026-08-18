@@ -1,0 +1,9 @@
+.env
+.claude/
+
+# Voter roster data (PII: names, addresses, phone numbers, age, party, VANID)
+# — never commit real voter records to a public repo.
+*.csv
+data/voters.js
+data/voters.json
+data/geocode_cache*.json
